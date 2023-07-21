@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>i love you</title>
+        <meta charset="UTF-8">
+        <meta name="description" content="Free Web tutorials">
+        <meta name="keywords" content="HTML, CSS, JavaScript">
+        <meta name="author" content="John Doe">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      </head>
+<style>
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+div {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+</style>
+<body style="background-image: url('pic2.jfif');">
+
+<h3  style="background-color:rgba(236, 153, 53, 0.929);" ><em>&#10084; calculate your love and future &#10084; </em> </h3>
+
+<div>
+  <form method="post" name="google-sheet">
+    <label for="fname">Your Name</label>
+    <input type="text" id="fname" name="firstname" placeholder="Your name " autocomplete="off" required>
+
+    <label for="lname">Patner Name</label>
+    <input type="text" id="lname" name="lastname" placeholder="Patner name" autocomplete="off" required>
+
+  
+    <input type="submit" value=" Let's Calculate" name="submit" id="submit">
+  </form>
+</div>
+
+<script>
+function getRandomNumber() {
+            const randomNumber = Math.floor(Math.random() * 100) + 1;
+            return randomNumber;
+        }
+
+const randomNumber = getRandomNumber(); 
+const randomNumber2 = getRandomNumber(); 
+
+
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzRhTkTVrScLCmOLPP1r_d8ukQtx1XQvScG96nqqYUpvtoDfNRehS4C_YOVUqWpJxiW/exec'
+    const form = document.forms['google-sheet']
+  
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => alert(" YOU Love "+randomNumber+"%"+" \n may be you will get married - " +randomNumber2+"%"))
+        .catch(error => console.error('Error!', error.message))
+    })
+    
+  </script>
+</body>
+</html>
+
+
